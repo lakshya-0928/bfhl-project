@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3003'; // change after deploy
+const BASE_URL = 'https://lakshya-bfhl-api.onrender.com';
 
 const inputEl = document.getElementById('input');
 const submitBtn = document.getElementById('submitBtn');

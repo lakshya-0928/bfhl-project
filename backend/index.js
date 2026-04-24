@@ -8,8 +8,14 @@ const USER_ID = 'lakshyajain_08082004';
 const EMAIL_ID = 'lj0928@srmist.edu.in';
 const COLLEGE_ROLL_NUMBER = 'RA2311005010099';
 
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
+
+app.options('/bfhl', cors());
 
 const EDGE_REGEX = /^[A-Z]->[A-Z]$/;
 
