@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graph Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1>Graph Analyzer</h1>
+      <p>Paste comma-separated edges, submit, and inspect trees, errors, duplicates, and summary stats.</p>
+    </header>
+
+    <section class="input-panel">
+      <label for="input">Edges Input</label>
+      <textarea id="input" rows="6" placeholder="Example: A->B, B->C, A->B, X->X, bad"></textarea>
+      <div class="actions">
+        <button id="submitBtn" class="primary" type="button">
+          <span class="spinner" aria-hidden="true"></span>
+          <span class="btn-text">Submit</span>
+        </button>
+        <button id="clearBtn" class="ghost" type="button">Clear</button>
+        <button id="exampleBtn" class="ghost" type="button">Load Example</button>
+      </div>
+      <p class="hint">Calling: <code>http://localhost:3000/bfhl</code> (change BASE_URL in script.js after deploy)</p>
+    </section>
+
+    <section id="errorBanner" class="error-banner hidden" role="alert"></section>
+
+    <section id="results" class="results hidden">
+      <article class="card fade-in" id="identityCard">
+        <h2>Identity</h2>
+        <div class="kv"><span>User ID</span><strong id="userId">-</strong></div>
+        <div class="kv"><span>Email</span><strong id="emailId">-</strong></div>
+        <div class="kv"><span>Roll Number</span><strong id="rollNumber">-</strong></div>
+      </article>
+
+      <article class="card fade-in" id="treeCard">
+        <h2>Tree View</h2>
+        <pre id="treeView" class="tree">-</pre>
+      </article>
+
+      <article class="card fade-in" id="invalidCard">
+        <h2>Invalid Entries</h2>
+        <div id="invalidTags" class="tag-wrap"></div>
+      </article>
+
+      <article class="card fade-in" id="duplicateCard">
+        <h2>Duplicate Edges</h2>
+        <div id="duplicateTags" class="tag-wrap"></div>
+      </article>
+
+      <article class="card fade-in" id="summaryCard">
+        <h2>Summary</h2>
+        <div class="summary-grid">
+          <div><span>Total Trees</span><strong id="totalTrees">0</strong></div>
+          <div><span>Total Cycles</span><strong id="totalCycles">0</strong></div>
+          <div><span>Largest Tree Root</span><strong id="largestRoot">-</strong></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
